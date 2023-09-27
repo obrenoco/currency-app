@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <form id="myForm" onsubmit="onSubmit(event)">
+      <div>
+        <input type="text" />
+        <select name="Exchange" id="from">
+          <option value="0">Brasil</option>
+          <option value="1">Angola</option>
+        </select>
+      </div>
+
+      <div>
+        <input type="text" />
+        <select name="Exchange" id="to">
+          <option value="0">Brasil</option>
+          <option value="1">Angola</option>
+        </select>
+      </div>
+
+      <button>Convert</button>
+    </form>
+
+    <p>R$ 500,00</p>
+
+    <script>
+      function onSubmit(event) {
+        event.preventDefault();
+        console.log(event);
+      }
+    </script>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then(function (registration) {
+            console.log(
+              "Service Worker registered with scope:",
+              registration.scope
+            );
+          })
+          .catch(function (error) {
+            console.error("Service Worker registration failed:", error);
+          });
+      }
+    </script>
+  </body>
+</html>
